@@ -1,0 +1,35 @@
+GET http://localhost:5000/api/register
+GET http://localhost:5000/api/login
+GET POST http://localhost:5000/auth
+###
+
+
+POST http://localhost:5000/api/register
+Content-Type: application/json
+
+{
+    "username": "long2",
+    "password": "1234562"
+}
+
+
+###
+
+
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+    "username": "long",
+    "password": "123456"
+}
+
+###
+
+
+POST http://localhost:5000/auth
+
+###
+
+
+POST http://localhost:5000/api/logout

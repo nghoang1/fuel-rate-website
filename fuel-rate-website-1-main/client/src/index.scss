@@ -1,0 +1,382 @@
+$primary-color: #ffffff;
+$secondary-color: #000000;
+$accent-dark: rgb(54, 57, 70);
+$accent-light: #696773;
+$highlight-dark: #819595;
+$highlight-light: #b1b6a6;
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    transition-timing-function: cubic-bezier(0, 0.7, 0.58, 1.0);
+}
+  
+html,
+body {
+    width: 100%;
+    height: auto;
+    font-family: 'Roboto', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: $secondary-color;
+    color: $primary-color;
+    font-weight: 100;
+    font-size: 18px;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    letter-spacing: 0.14rem;
+    line-height: 1.8rem;
+}
+  
+a, a:link {
+    text-decoration: none;
+    color: $primary-color;
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+select {
+    width: auto;
+    padding: 9px 10px;
+    font-size: 1.2rem;
+    margin: 12px 0px;
+    display: inline-block;
+    border: 3px solid $highlight-dark;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0%;
+    }
+}
+
+@keyframes slideDownCustom {
+    0% {
+        transform: translate(-50%, -100px);
+        opacity: 0%;
+    }
+}
+
+@keyframes slideUpCustom {
+    0% {
+        transform: translate(-50%, calc(-50% + 100px));
+        opacity: 0%;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0%;
+    }
+}
+
+@keyframes slideLeftCustom {
+    0% {
+        transform: translateX(calc(-50% + 100px));
+        opacity: 0%;
+    }
+}
+
+.NavBar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    z-index: 10;
+    top: 20px;
+    animation: 1s cubic-bezier(0, 0.7, 0.58, 1.0) 0s 1 slideDown;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.4);
+    ul {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-row-gap: 50px;
+        list-style: none;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        li {
+            padding: 7px 0px;
+            background: $accent-dark;
+            transition: background 1s;
+            text-align: center;
+            font-weight: 500;
+        }
+        li:hover {
+            background: $highlight-light;
+        }
+    }
+}
+
+.Homepage {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(105, 103, 115, 0.5)), url("/src/images/mainpagebg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    .title-wrapper {
+        animation: 1s cubic-bezier(0, 0.7, 0.58, 1.0) 0s 1 slideRight;
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        line-height: 5rem;
+        h1 {
+            font-weight: 100;
+            font-size: 5rem;
+        }
+        p {
+            margin-left: 50px;
+            font-size: 2rem;
+        }
+    }
+}
+
+.Loginpage {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(105, 103, 115, 0.5)), url("/src/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    button[type=submit] {
+        margin-top: 20px;
+        font-size: 1.1rem;
+        padding: 8px 12px;
+        background-color: $highlight-dark;
+        color: $primary-color;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: brightness;
+    }
+    .login-wrapper {
+        animation: 1s cubic-bezier(0, 0.7, 0.58, 1.0) 0s 1 slideUpCustom;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $accent-dark;
+        display: grid;
+        grid-template-areas:
+            'header'
+            'input';
+        gap: 20px;
+        padding: 20px 20px;
+        text-align: center;
+        border-radius: 3%;
+        box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4);
+        h1 {
+            margin-top: 12px;
+            font-weight: 100;
+            grid-area: header;
+        }
+        .form-wrapper {
+            padding: 0px 20px;
+            margin-bottom: 20px;
+            grid-area: input;
+            form {
+                display: grid;
+                grid-template-areas: 
+                    'x x'
+                    'y y'
+                    'z z'
+                    'but but';
+                gap: 10px;
+                input[type=text] {
+                    grid-area: x;
+                }
+                input[type=password] {
+                    grid-area: y;
+                }
+                input[type=password]:nth-child(3) {
+                    grid-area: z;
+                }
+                #3, #4 {
+                    grid-area: but;
+                }
+            }
+            button[type=submit]:hover {
+                filter: brightness(70%);
+            }
+            button {
+                margin-top: 20px;
+                font-size: 1.1rem;
+                padding: 8px 12px;
+                cursor: pointer;
+                border: none;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+.Quotehistory {
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    animation: 1s cubic-bezier(0, 0.7, 0.58, 1.0) 0s 1 slideDown;
+    h1 {
+        width: 100%;
+        background-color: $highlight-dark;
+        padding: 20px 10px;
+    }
+    table {
+        font-size: 0.8rem;
+        letter-spacing: 0.05rem;
+        margin: 80px 0px;
+        width: 100%;
+        border: 3px solid $primary-color;
+        border-collapse: collapse;
+        th {
+            background-color: $accent-dark;
+            border: 3px solid $primary-color;
+        }
+    }
+}
+
+.Fuelquote {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: 1s cubic-bezier(0, 0.7, 0.58, 1.0) 0s 1 slideDownCustom;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-areas:
+        'header header header'
+        '. x .';
+    #login-message {
+        text-align: center;
+        font-size: 2rem;
+        grid-area: x;
+    }
+    h1 {
+        width: 100%;
+        background-color: $highlight-dark;
+        padding: 20px 10px;
+        grid-area: header;
+        text-align: center;
+    }
+    form {
+        grid-area: x;
+        padding: 20px;
+        margin-top: 50px;
+        display: grid;
+        grid-template-areas: 
+            'label1 input1'
+            'label2 input2'
+            'label3 input3'
+            '. .'
+            'label4 label5'
+            'but but';
+        align-items: center;
+        grid-auto-rows: 1fr;
+        gap: 20px;
+        label, input {
+            padding: 4px 20px;
+        }
+        label {
+            font-weight: 500;
+            font-size: 1.3rem;
+        }
+        #pricelabel1 {
+            grid-area: label4;
+            background-color: $accent-dark;
+        }
+        #pricelabel2 {
+            grid-area: label5;
+            text-align: right;
+            background-color: $accent-light;
+        }
+        button[type=submit] {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            background-color: $highlight-dark;
+            color: $primary-color;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: brightness;
+        }
+    }
+}
+
+.Clientpage {
+    background: linear-gradient(90deg, rgba(129,149,149,0.8) 0%, rgba(177,182,166,0.8) 100%);
+    width: 100%;
+    height: 100vh;
+    #login-message {
+        text-align: center;
+        font-size: 2rem;
+    }
+    .client-wrapper {
+        position: absolute;
+        top: 120px;
+        left: 50%;
+        animation: 1s cubic-bezier(0, 0.7, 0.58, 1.0) 0s 1 slideLeftCustom;
+        height: auto;
+        width: auto;
+        display: grid;
+        grid-template-areas:
+            'header'
+            'input';
+        gap: 20px;
+        padding: 20px 20px;
+        background-color: rgba(54, 57, 70, 0.6);
+        border-radius: 1%;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
+        transform: translateX(-50%);
+        justify-items: start;
+        h1 {
+            width: 100%;
+            padding: 20px 10px;
+            grid-area: header;
+            font-weight: 100;
+            text-align: center;
+        }
+        form {
+            grid-area: input;
+            display: grid;
+            grid-template-areas: 
+                'label1 input1'
+                'label2 input2'
+                'label3 input3'
+                'label4 input4'
+                'label5 label6'
+                'input5 input6'
+                'but but';
+            align-items: center;
+            column-gap: 10px;
+            label {
+                font-size: 1.3rem;
+            }
+            button[type=submit] {
+                margin-top: 20px;
+                font-size: 1.1rem;
+                padding: 8px 12px;
+                background-color: $highlight-dark;
+                color: $primary-color;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: brightness;
+            }
+        }
+    }
+}
+
+#login-message-history {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 120px;
+    animation: 1s cubic-bezier(0, 0.7, 0.58, 1.0) 0s 1 slideDown;
+}
